@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["app/_components/*"],
+      "@/lib/*": ["app/_lib/*"],
+      "@/data/*": ["app/_data/*"],
+      "@/prisma/*": ["prisma/*"]
+    },
     "lib": [
       "dom",
       "dom.iterable",
