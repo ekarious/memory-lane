@@ -4,58 +4,75 @@ import { Gender } from "@prisma/client";
 const users = [
     {
       "firstName": "John",
-      "LastName": "Doe",
+      "lastName": "Doe",
       "gender": Gender.MALE,
       "email": "john.doe@example.com",
       "status": "",
       "job": "Software Engineer",
       "isActive": true,
+      "avatar": "avatar-1.png",
       "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
     },
     {
       "firstName": "Jane",
-      "LastName": "Smith",
+      "lastName": "Smith",
       "gender": Gender.FEMALE,
       "email": "jane.smith@example.com",
       "status": "",
       "job": "Product Manager",
       "isActive": true,
+      "avatar": "avatar-4.png",
       "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
     },
     {
       "firstName": "Alex",
-      "LastName": "Johnson",
+      "lastName": "Johnson",
       "gender": Gender.NON_BINARY,
       "email": "alex.johnson@example.com",
       "status": "",
       "job": "Designer",
       "isActive": true,
+      "avatar": "avatar-3.png",
       "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
     },
     {
       "firstName": "Emily",
-      "LastName": "Davis",
+      "lastName": "Davis",
       "gender": Gender.FEMALE,
       "email": "emily.davis@example.com",
       "status": "",
       "job": "Data Analyst",
       "isActive": true,
+      "avatar": "avatar-5.png",
       "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
     },
     {
       "firstName": "Michael",
-      "LastName": "Brown",
+      "lastName": "Brown",
       "gender": Gender.MALE,
       "email": "michael.brown@example.com",
       "status": "",
       "job": "Marketing Specialist",
       "isActive": true,
+      "avatar": "avatar-2.png",
       "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
+    },
+    {
+      "firstName": "Sophie",
+      "lastName": "Chen",
+      "gender": Gender.FEMALE,
+      "email": "sophie.chen@example.com",
+      "status": "",
+      "job": "UX/UI Designer",
+      "isActive": true,
+      "avatar": "avatar-8.png",
+      "createdAt": new Date("2024-11-23T15:45:22Z"),
+      "modifiedAt": new Date("2025-02-19T09:33:41Z")
     }
 ];
 

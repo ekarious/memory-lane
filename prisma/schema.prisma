@@ -13,27 +13,28 @@ datasource db {
 model User {
   id         Int      @id @default(autoincrement())
   firstName  String
-  LastName   String
+  lastName   String
   gender     Gender   @default(NONE)
   email      String   @unique
   status     String   @default("")
   job        String   @default("")
   isActive   Boolean  @default(true)
+  avatar     String?
   createdAt  DateTime @default(now())
   modifiedAt DateTime @updatedAt
   Event      Event[]
 }
 
 model Event {
-  id          Int           @id @default(autoincrement())
+  id          Int          @id @default(autoincrement())
   userId      Int
-  user        User          @relation(fields: [userId], references: [id])
+  user        User         @relation(fields: [userId], references: [id])
   title       String
   description String
-  isFamily    Boolean       @default(true)
-  isFriend    Boolean       @default(true)
-  createdAt   DateTime      @default(now())
-  modifiedAt  DateTime      @updatedAt
+  isFamily    Boolean      @default(true)
+  isFriend    Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  modifiedAt  DateTime     @updatedAt
   Attachments Attachment[]
 }
 
