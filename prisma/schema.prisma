@@ -11,40 +11,37 @@ datasource db {
 }
 
 model User {
-  id          Int           @id @default(autoincrement())
-  firstName   String
-  LastName    String
-  gender      Gender        @default(NONE)
-  email       String        @unique
-  phone       Int?
-  status      String?
-  job         String?
-  createdAt   DateTime
-  modifiedAt  DateTime
-  UserSetting UserSetting[]
-  Event       Event[]
-}
-
-model UserSetting {
   id         Int      @id @default(autoincrement())
-  userId     Int
-  user       User     @relation(fields: [userId], references: [id])
-  setting    String
-  value      String
-  createdAt  DateTime
-  modifiedAt DateTime
+  firstName  String
+  LastName   String
+  gender     Gender   @default(NONE)
+  email      String   @unique
+  status     String   @default("")
+  job        String   @default("")
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  modifiedAt DateTime @updatedAt
+  Event      Event[]
 }
 
 model Event {
-  id          String   @id @default(cuid())
+  id          Int           @id @default(autoincrement())
   userId      Int
-  user        User     @relation(fields: [userId], references: [id])
+  user        User          @relation(fields: [userId], references: [id])
   title       String
   description String
-  isFamily    Boolean  @default(true)
-  isFriend    Boolean  @default(true)
-  createdAt   DateTime
-  modifiedAt  DateTime
+  isFamily    Boolean       @default(true)
+  isFriend    Boolean       @default(true)
+  createdAt   DateTime      @default(now())
+  modifiedAt  DateTime      @updatedAt
+  Attachments Attachment[]
+}
+
+model Attachment {
+  id      Int    @id @default(autoincrement())
+  eventId Int
+  event   Event  @relation(fields: [eventId], references: [id])
+  url     String
 }
 
 enum Gender {

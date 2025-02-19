@@ -7,10 +7,10 @@ const users = [
       "LastName": "Doe",
       "gender": Gender.MALE,
       "email": "john.doe@example.com",
-      "phone": 1234567890,
-      "status": "active",
+      "status": "",
       "job": "Software Engineer",
-      "createdAt": new Date("2025-02-18T02:12:33Z"),
+      "isActive": true,
+      "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
     },
     {
@@ -18,21 +18,21 @@ const users = [
       "LastName": "Smith",
       "gender": Gender.FEMALE,
       "email": "jane.smith@example.com",
-      "phone": 9876543210,
-      "status": "active",
+      "status": "",
       "job": "Product Manager",
-      "createdAt": new Date("2025-02-18T02:12:33Z"),
+      "isActive": true,
+      "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
     },
     {
       "firstName": "Alex",
       "LastName": "Johnson",
-      "gender": Gender.NONBINARY,
+      "gender": Gender.NON_BINARY,
       "email": "alex.johnson@example.com",
-      "phone": null,
-      "status": "inactive",
+      "status": "",
       "job": "Designer",
-      "createdAt": new Date("2025-02-18T02:12:33Z"),
+      "isActive": true,
+      "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
     },
     {
@@ -40,10 +40,10 @@ const users = [
       "LastName": "Davis",
       "gender": Gender.FEMALE,
       "email": "emily.davis@example.com",
-      "phone": 1231231234,
-      "status": "active",
+      "status": "",
       "job": "Data Analyst",
-      "createdAt": new Date("2025-02-18T02:12:33Z"),
+      "isActive": true,
+      "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
     },
     {
@@ -51,10 +51,10 @@ const users = [
       "LastName": "Brown",
       "gender": Gender.MALE,
       "email": "michael.brown@example.com",
-      "phone": null,
-      "status": "active",
+      "status": "",
       "job": "Marketing Specialist",
-      "createdAt": new Date("2025-02-18T02:12:33Z"),
+      "isActive": true,
+      "createdAt": new Date("2025-02-17T02:12:33Z"),
       "modifiedAt": new Date("2025-02-18T02:12:33Z")
     }
 ];
