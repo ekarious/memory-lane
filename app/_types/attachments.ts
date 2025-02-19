@@ -1,5 +1,9 @@
 export type Attachment = {
     id: number;
     eventId: number;
-    url: string;
+    title: string;
+    filename: string;
+    extension: string;
+    height: number;
+    width: number;
 }
