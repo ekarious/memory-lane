@@ -1,23 +1,25 @@
 "use client";
 
 import { SegmentedControl } from "@mantine/core";
-import { useState } from "react";
 import classes from "./ModeSwitcher.module.css";
+import { EventMode } from "@/types/events";
+import { useModeStore } from "@/lib/storeProvider";
 
 export default function ModeSwitcher() {
-  const [value, setValue] = useState("both");
+  const mode = useModeStore(state => state.mode);
+  const changeMode = useModeStore(state => state.changeMode);
 
   return (
     <div>
       <SegmentedControl
         className={classes.switch}
         radius="xl"
-        value={value}
-        onChange={setValue}
+        value={mode}
+        onChange={(v) => changeMode(v as EventMode)}
         data={[
-          { label: "Family", value: "family" },
-          { label: "Both", value: "both" },
-          { label: "Friends", value: "friends" },
+          { label: "Family", value: EventMode.FAMILY },
+          { label: "Both", value: EventMode.BOTH },
+          { label: "Friends", value: EventMode.FRIENDS },
         ]}
       />
     </div>
