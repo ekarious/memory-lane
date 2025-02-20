@@ -3,8 +3,17 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET(req: Request) {
   try {
-    const memories = await prisma.event.findMany();
-    return NextResponse.json({ memories }, { status: 200 });
+    const events = await prisma.event.findMany({
+      include: {
+        user: true,
+        Attachments: true
+      },
+      orderBy: {
+        createdAt: 'desc'
+      }
+    });
+
+    return NextResponse.json({ events }, { status: 200 });
   } catch (error: any) {
     return NextResponse.json(
       {
