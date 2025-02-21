@@ -47,7 +47,7 @@ I decided not to continue with this, as creating the best application possible w
 8. I created this magnificent README.
 9. Ta-da!
 
-## My Vision
+## My Vision and missing parts
 
 I wanted to keep this simple, clean, and focused on the memories in the timeline, with small buttons for interaction.
 
@@ -57,6 +57,7 @@ However, please note that a few features were not implemented, such as:
 - Authentication (We directly assume an identity here; there is no authentication at all)
 - Mobile and Tablet: The app should be responsive, but given the timeframe, I preferred not to focus on those.
 - Many buttons are included for design purposes but are not clickable.
+- Uploading image does not reduce the size of it (weight and resolution), at least for now.
 - There is no testing of any kind (unit tests, integration tests, and so on).
 - and a lot more. 
 
