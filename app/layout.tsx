@@ -6,13 +6,23 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 import { theme } from "../theme";
+import Header from "@/components/Header/Header";
+import { User } from "@/types/users";
+import "@mantine/dropzone/styles.css";
+
+import { ModeStoreProvider } from "./_lib/storeProvider";
 
 export const metadata = {
-  title: "Mantine Next.js template",
-  description: "I am using Mantine with Next.js!",
+  title: "Memory Lane",
+  description: "Memories for Family and Friends !",
 };
 
-export default function RootLayout({ children }: { children: any }) {
+export default async function RootLayout({ children }: { children: any }) {
+  // This is to fetch the current User in this scenario
+  // Normally this would be data saved in session and/or in a global state
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/6`);
+  const data: { user: User } = await res.json();
+
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
@@ -24,7 +34,12 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme} withCssVariables={true}>
+          <ModeStoreProvider>
+            <Header user={data.user} />
+            {children}
+          </ModeStoreProvider>
+        </MantineProvider>
       </body>
     </html>
   );

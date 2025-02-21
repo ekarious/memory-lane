@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  firstName  String
+  lastName   String
+  gender     Gender   @default(NONE)
+  email      String   @unique
+  status     String   @default("")
+  job        String   @default("")
+  isActive   Boolean  @default(true)
+  avatar     String?
+  createdAt  DateTime @default(now())
+  modifiedAt DateTime @updatedAt
+  Event      Event[]
+}
+
+model Event {
+  id          Int          @id @default(autoincrement())
+  userId      Int
+  user        User         @relation(fields: [userId], references: [id])
+  title       String
+  description String
+  isFamily    Boolean      @default(true)
+  isFriend    Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  modifiedAt  DateTime     @updatedAt
+  Attachments Attachment[]
+}
+
+model Attachment {
+  id        Int    @id @default(autoincrement())
+  eventId   Int
+  event     Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  filename  String
+  extension String
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  TRANS
+  NON_BINARY
+  OTHER
+  NONE
+}
