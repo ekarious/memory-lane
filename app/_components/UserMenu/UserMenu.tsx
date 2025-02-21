@@ -77,14 +77,14 @@ export default function UserMenu(props: Props) {
               <IconHeart size={16} color={theme.colors.red[6]} stroke={1.5} />
             }
           >
-            Liked posts
+            Liked memories
           </Menu.Item>
           <Menu.Item
             leftSection={
               <IconStar size={16} color={theme.colors.yellow[6]} stroke={1.5} />
             }
           >
-            Saved posts
+            Saved memories
           </Menu.Item>
           <Menu.Item
             leftSection={

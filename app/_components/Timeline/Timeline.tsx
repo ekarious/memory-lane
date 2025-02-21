@@ -14,7 +14,7 @@ import {
   ActionIcon,
   UnstyledButton,
 } from "@mantine/core";
-import { IconBookmark, IconShare3 } from "@tabler/icons-react";
+import { IconBookmark, IconShare3, IconHeart } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "./Timeline.module.css";
 import dayjs from "dayjs";
@@ -141,6 +141,14 @@ export default function TimelineComp(props: Props) {
                 </Group>
 
                 <Group justify="flex-start" gap={10}>
+                  <ActionIcon
+                    variant="transparent"
+                    color="gray.4"
+                    aria-label="Like"
+                    className={classes.iconHover}
+                  >
+                    <IconHeart />
+                  </ActionIcon>
                   <ActionIcon
                     variant="transparent"
                     color="gray.4"
