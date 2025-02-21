@@ -1,52 +1,79 @@
 import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
 
-export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
-    try {
-        const id = (await params).id;
+export async function GET(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const id = (await params).id;
 
-        return NextResponse.json({
-            message: `Just the memory ${id}...`
-        },  { status: 200 })
+    const event = await prisma.event.findUnique({
+      where: {
+        id: Number(id),
+      },
+      include: {
+        user: true,
+        Attachments: true,
+      },
+    });
 
-    } catch (error: any) {
-        // Handle any errors
-        return NextResponse.json({
-            error: `No memory found`,
-            details: error.message
-        }, { status: 400 });
-    }
+    return NextResponse.json({ event }, { status: 200 });
+  } catch (error: any) {
+    return NextResponse.json(
+      {
+        error: `No memory found`,
+        details: error.message,
+      },
+      { status: 400 }
+    );
+  }
 }
 
-export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
-    try {
-        const id = (await params).id;
+// NOTE: The API exists but will not be implemented in the first iteration.
+export async function PUT(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const id = (await params).id;
 
-        return NextResponse.json({
-            message: `Memory ${id} modified !`,
-        }, { status: 200 });
+    // TODO: Add possibility to edit an event
 
-    } catch (error: any) {
-        // Handle any errors
-        return NextResponse.json({
-            error: "Error editing the memory [id]...",
-            details: error.message
-        }, { status: 400 });
-    }
+    return NextResponse.json({ event }, { status: 200 });
+  } catch (error: any) {
+    return NextResponse.json(
+      {
+        error: "Could not edit the memory.",
+        details: error.message,
+      },
+      { status: 400 }
+    );
+  }
 }
 
-export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {
-    try {
-        const id = (await params).id;
+export async function DELETE(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const id = (await params).id;
 
-        return NextResponse.json({
-            message: `Memory ${id} deleted !`,
-        }, { status: 200 });
+    // This will automatically delete the attachments linked to an event !
+    const event = await prisma.event.delete({
+      where: {
+        id: Number(id),
+      },
+    });
 
-    } catch (error: any) {
-        // Handle any errors
-        return NextResponse.json({
-            error: "Error deleting the memory [id]...",
-            details: error.message
-        }, { status: 400 });
-    }
+    return NextResponse.json({ event }, { status: 200 });
+  } catch (error: any) {
+    return NextResponse.json(
+      {
+        error: "Could not deleting the memory.",
+        details: error.message,
+      },
+      { status: 400 }
+    );
+  }
 }
