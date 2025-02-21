@@ -57,6 +57,7 @@ However, please note that a few features were not implemented, such as:
 - Authentication (We directly assume an identity here; there is no authentication at all)
 - Mobile and Tablet: The app should be responsive, but given the timeframe, I preferred not to focus on those.
 - Many buttons are included for design purposes but are not clickable.
+- There is no testing of any kind (unit tests, integration tests, and so on).
 - and a lot more. 
 
 I am sure you, readers, have even more ideas!
