@@ -117,7 +117,7 @@ export default function TimelineComp(props: Props) {
                   {event.Attachments.length > 0 && (
                     <Image
                       src={`/images/${event.Attachments[0].filename}${event.Attachments[0].extension}`}
-                      alt={event.Attachments[0].title}
+                      alt={`Image for event ${event.id}`}
                     />
                   )}
                 </CardSection>

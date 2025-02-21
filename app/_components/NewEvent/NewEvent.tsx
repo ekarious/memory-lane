@@ -44,7 +44,6 @@ const schema = z.object({
     isFriend: z.boolean(),
   }),
   attachment: z.object({
-    title: z.string().min(3),
     filename: z.string(),
     extension: z.string(),
   }),
@@ -69,7 +68,6 @@ export default function NewEvent(props: Props) {
         isFriend: true,
       },
       attachment: {
-        title: "",
         filename: "",
         extension: "",
       },
@@ -93,7 +91,6 @@ export default function NewEvent(props: Props) {
     const [filename, extension] = sanitized.split(".");
 
     // Save data to the form
-    form.setFieldValue("attachment.title", "This is a title !");
     form.setFieldValue("attachment.filename", filename);
     form.setFieldValue("attachment.extension", `.${extension}`);
 
@@ -110,7 +107,6 @@ export default function NewEvent(props: Props) {
   };
 
   const resetImage = () => {
-    form.setFieldValue("attachment.title", "");
     form.setFieldValue("attachment.filename", "");
     form.setFieldValue("attachment.extension", "");
     setVImage(null);

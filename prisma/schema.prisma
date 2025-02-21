@@ -42,7 +42,6 @@ model Attachment {
   id        Int    @id @default(autoincrement())
   eventId   Int
   event     Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
-  title     String
   filename  String
   extension String
 }
