@@ -45,8 +45,6 @@ model Attachment {
   title     String
   filename  String
   extension String
-  height    Int
-  width     Int
 }
 
 enum Gender {
