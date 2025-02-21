@@ -2,36 +2,38 @@
 
 Share memories with you Family and Friends !
 
-[Add video]
+![Preview](./memory-lane-preview.jpg)
 
-This is a project made for a Technical assessment for a company. I will not say the name.
+[Watch the demo video](https://drive.proton.me/urls/48ARNWNK20#zKaGaOhyTNtB)
 
-I had a lot of fun making it and still have a lot of ideas but I decided to stop it for now. I made what they asked me for. I will perhaps continue it in the future.
+This project was created as part of a technical assessment for a company, the name of which I will not disclose.  
+
+I had a lot of fun making it and still have many ideas, but I decided to pause for now. I completed what was requested of me and may consider continuing it in the future.
 
 ## Problem definition
 
-- Deliver a first iteration
-- Make a solution for Friends and Family to share memories together in a single place.
-- Collection of events that happened in a chronological order
-- Each event should have (at least) a Title, a Description, a Timestamp and one or more images.
+- Deliver the first iteration.
+- Create a solution for friends and family to share memories together in a single place.
+- Compile a collection of events that occurred in chronological order.
+- Each event should include (at least) a title, a description, a timestamp, and one or more images.
 
 ## Timeframe
 
-I made this in actually 3 days. Roughly 6 ~ 8 hours a day.  
-Between learning, designing, testing, coding and having fun.
+I completed this in three days, roughly 6 to 8 hours each day, which included learning, designing, testing, coding, and having fun.
 
 ## Technical Stack 
 
-I have seen this as a challange so I decide to use a few things I did not use in a while (and some never !)
+I viewed this as a challenge, so I decided to use a few tools I hadn't used in a while (and some that I had never used before!).
 
 - [NextJS](https://nextjs.org) v15 (Love React!) with Typescript.
-- [Mantine UI library](https://mantine.dev/) (highly recommanded).
+- [Mantine UI library](https://mantine.dev/) (highly recommended).
 - [Tabler Icons](https://tabler.io/icons) for... icons !
-- [Dayjs](https://day.js.org/) for date management. Smaller than Moment and very enjoyable to use.
-- [Sqlite](https://www.sqlite.org/index.html) for database.
-- [Zod](https://zod.dev/) for Form validation.
-- [Zustand](https://zustand.docs.pmnd.rs/) for Global State Management.
-- [Prisma](https://www.prisma.io) as a Database ORM.
+- [Dayjs](https://day.js.org/) for date management. It's smaller than Moment and very enjoyable to use.
+- [Sqlite](https://www.sqlite.org/index.html) for the database.
+- [Zod](https://zod.dev/) for form validation.
+- [Zustand](https://zustand.docs.pmnd.rs/) for global state management.
+- [Prisma](https://www.prisma.io) as a database ORM.
+- [Figma](https://www.figma.com/) for design and mockups.
 
 ## Installation
 
@@ -42,8 +44,8 @@ If you do not have it, just install it:
 npm install -g yarn
 ```
 
-Normally, everything should be prepared already.  
-Just clone, install packages and run !
+Everything should be set up already.  
+Just clone the repository, install the packages, and run it!
 
 ```bash
 git clone https://github.com/ekarious/memory-lane.git
