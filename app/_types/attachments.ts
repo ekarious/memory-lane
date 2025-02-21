@@ -4,6 +4,4 @@ export type Attachment = {
     title: string;
     filename: string;
     extension: string;
-    height: number;
-    width: number;
 }
