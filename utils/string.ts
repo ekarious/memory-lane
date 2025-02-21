@@ -1,7 +1,3 @@
-import { FileWithPath } from "@mantine/dropzone";
-import { readFile, writeFile } from "fs/promises";
-import { join } from "path";
-
 export const sanitizeFileName = (filename: string): string => {
   const [name, ext] = filename.split(".");
 
