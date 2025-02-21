@@ -8,6 +8,7 @@
       "@/lib/*": ["app/_lib/*"],
       "@/data/*": ["app/_data/*"],
       "@/types/*": ["app/_types/*"],
+      "@/utils/*": ["utils/*"],
       "@/prisma/*": ["prisma/*"]
     },
     "lib": [
