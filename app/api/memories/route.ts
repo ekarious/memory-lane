@@ -6,11 +6,11 @@ export async function GET(req: Request) {
     const events = await prisma.event.findMany({
       include: {
         user: true,
-        Attachments: true
+        Attachments: true,
       },
       orderBy: {
-        createdAt: 'desc'
-      }
+        createdAt: "desc",
+      },
     });
 
     return NextResponse.json({ events }, { status: 200 });
@@ -29,16 +29,24 @@ export async function POST(req: Request) {
   try {
     // Parse the request body
     const body = await req.json();
+    console.log("body", body);
 
-    // You can now use the data from the body
-    // For example, sending it back in the response
-    return NextResponse.json(
-      {
-        message: "New memory added !",
-        receivedData: body,
-      },
-      { status: 201 }
-    );
+    const resEvent = await prisma.event.create({
+      data: {
+        ...body.event,
+        userId: body.user.id,
+      }
+    });
+
+    // Attachement save database
+    const resAtta = await prisma.attachment.create({
+      data: {
+        ...body.attachment,
+        eventId: resEvent.id
+      }
+    })
+
+    return NextResponse.json({resEvent, resAtta});
   } catch (error: any) {
     // Handle any errors
     return NextResponse.json(
