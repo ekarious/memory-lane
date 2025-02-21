@@ -8,7 +8,7 @@ import {
 import { theme } from "../theme";
 import Header from "@/components/Header/Header";
 import { User } from "@/types/users";
-import '@mantine/dropzone/styles.css';
+import "@mantine/dropzone/styles.css";
 
 import { ModeStoreProvider } from "./_lib/storeProvider";
 

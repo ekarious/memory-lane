@@ -10,9 +10,8 @@ export default function ModeSwitcher() {
   const changeMode = useModeStore(state => state.changeMode);
 
   return (
-    <div>
+    <div className={classes.switch}>
       <SegmentedControl
-        className={classes.switch}
         radius="xl"
         value={mode}
         onChange={(v) => changeMode(v as EventMode)}

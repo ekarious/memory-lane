@@ -69,6 +69,7 @@ export default function TimelineComp(props: Props) {
         reverseActive
         lineWidth={2}
         bulletSize={36}
+        mt={60}
       >
         {/* Create your Event ! */}
         {opened && (
