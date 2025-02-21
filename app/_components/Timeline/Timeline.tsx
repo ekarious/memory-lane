@@ -9,21 +9,22 @@ import {
   Card,
   Image,
   CardSection,
-  AspectRatio,
   Group,
   Title,
   ActionIcon,
+  UnstyledButton,
 } from "@mantine/core";
 import { IconBookmark, IconShare3 } from "@tabler/icons-react";
-import { useDisclosure } from '@mantine/hooks';
+import { useDisclosure } from "@mantine/hooks";
 import classes from "./Timeline.module.css";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Event, EventMode } from "@/types/events";
+import { User } from "@/types/users";
 import { useModeStore } from "@/lib/storeProvider";
 import NewEvent from "@/components/NewEvent/NewEvent";
 import NewEventCollapsed from "../NewEventCollapsed/NewEventCollapsed";
-import { User } from "@/types/users";
+import { useRouter } from 'next/navigation';
 
 dayjs.extend(relativeTime);
 
@@ -35,6 +36,7 @@ interface Props {
 export default function TimelineComp(props: Props) {
   const [opened, handlers] = useDisclosure(false);
   const mode = useModeStore((state) => state.mode);
+  const router = useRouter();
 
   // Change the events displayed based on the mode
   const displayedEvents: Event[] = props.events.filter((event) => {
@@ -49,6 +51,17 @@ export default function TimelineComp(props: Props) {
     return event;
   });
 
+  const deletePost = async (id: number) => {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/memories/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    
+    router.refresh();
+  };
+
   return (
     <>
       <Timeline
@@ -58,8 +71,12 @@ export default function TimelineComp(props: Props) {
         bulletSize={36}
       >
         {/* Create your Event ! */}
-        {opened && <NewEvent state={handlers} currentUser={props.currentUser} />}
-        {!opened && <NewEventCollapsed state={handlers} currentUser={props.currentUser} />}
+        {opened && (
+          <NewEvent state={handlers} currentUser={props.currentUser} />
+        )}
+        {!opened && (
+          <NewEventCollapsed state={handlers} currentUser={props.currentUser} />
+        )}
 
         {/* Timeline of events */}
         {displayedEvents &&
@@ -76,26 +93,33 @@ export default function TimelineComp(props: Props) {
               }
             >
               <Group justify="space-between">
-                <Text c="dimmed" size="sm">
+                <Text c="dimmed" size="sm" style={{flex: 2}}>
                   {event.user.status}
                 </Text>
 
                 <Text c="dimmed" size="sm" ta="right">
                   {dayjs(event.createdAt).fromNow()}
                 </Text>
+
+                {event.user.id === 6 && " | " && (
+                  <UnstyledButton
+                    component="a"
+                    c="red"
+                    fz={13}
+                    onClick={() => deletePost(event.id)}
+                  >
+                    Delete
+                  </UnstyledButton>
+                )}
               </Group>
               <Card shadow="sm" p="xs" radius="sm" withBorder mt={4} maw={450}>
                 <CardSection>
-                  <AspectRatio
-                    ratio={
-                      event.Attachments[0].width / event.Attachments[0].height
-                    }
-                  >
+                  {event.Attachments.length > 0 && (
                     <Image
                       src={`/images/${event.Attachments[0].filename}${event.Attachments[0].extension}`}
                       alt={event.Attachments[0].title}
                     />
-                  </AspectRatio>
+                  )}
                 </CardSection>
 
                 <Group justify="space-between" mt="md" mb="xs">
