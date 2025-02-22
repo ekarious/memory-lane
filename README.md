@@ -88,6 +88,17 @@ yarn run dev
 
 Just have fun with this little `demo` app.
 
-## troubleshooting
+## Troubleshooting
 
+If you need to redo the database for development.  
+This is simple, here is the workflow:
+```
+rm ./prisma/memories.dev.db 
+npx prisma db push
+npx prisma db seed
+```
 
+`prisma db push` will recreate the database with all the tables, but they will be empty.
+`prisma db seed` will add all the mock data to the database.
+
+Then have fun again !
