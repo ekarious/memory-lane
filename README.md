@@ -87,3 +87,7 @@ yarn run dev
 ## Use
 
 Just have fun with this little `demo` app.
+
+## troubleshooting
+
+
