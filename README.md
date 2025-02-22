@@ -52,6 +52,7 @@ I decided not to continue with this, as creating the best application possible w
 I wanted to keep this simple, clean, and focused on the memories in the timeline, with small buttons for interaction.
 
 However, please note that a few features were not implemented, such as:
+- You're supposed to be a new user on the platform. More message for your welcome should be necessary.
 - Editing a memory
 - Access to user pages (your comments, liked memories, etc.)
 - Authentication (We directly assume an identity here; there is no authentication at all)
