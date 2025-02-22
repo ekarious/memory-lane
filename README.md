@@ -1,6 +1,6 @@
 # Memory Lane
 
-Share memories with you Family and Friends !
+Share memories with your Family and Friends !
 
 ![Preview](./memory-lane-preview.jpg)
 
