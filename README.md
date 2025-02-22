@@ -98,7 +98,7 @@ npx prisma db push
 npx prisma db seed
 ```
 
-`prisma db push` will recreate the database with all the tables, but they will be empty.
+`prisma db push` will recreate the database with all the tables, but they will be empty.  
 `prisma db seed` will add all the mock data to the database.
 
 Then have fun again !
