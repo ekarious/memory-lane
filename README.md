@@ -58,6 +58,8 @@ However, please note that a few features were not implemented, such as:
 - Mobile and Tablet: The app should be responsive, but given the timeframe, I preferred not to focus on those.
 - Many buttons are included for design purposes but are not clickable.
 - Uploading image does not reduce the size of it (weight and resolution), at least for now.
+- No Notifications for user actions (as we are the only user adding data, we can saw our data added. No need for notifications)
+- Better error management
 - There is no testing of any kind (unit tests, integration tests, and so on).
 - and a lot more. 
 
