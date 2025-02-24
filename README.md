@@ -1,6 +1,6 @@
 # Memory Lane
 
-Share memories with you Family and Friends !
+Share memories with your Family and Friends !
 
 ![Preview](./memory-lane-preview.jpg)
 
@@ -47,16 +47,21 @@ I decided not to continue with this, as creating the best application possible w
 8. I created this magnificent README.
 9. Ta-da!
 
-## My Vision
+## My Vision and missing parts
 
 I wanted to keep this simple, clean, and focused on the memories in the timeline, with small buttons for interaction.
 
 However, please note that a few features were not implemented, such as:
+- You're supposed to be a new user on the platform. More message for your welcome should be necessary.
 - Editing a memory
 - Access to user pages (your comments, liked memories, etc.)
 - Authentication (We directly assume an identity here; there is no authentication at all)
 - Mobile and Tablet: The app should be responsive, but given the timeframe, I preferred not to focus on those.
 - Many buttons are included for design purposes but are not clickable.
+- Uploading image does not reduce the size of it (weight and resolution), at least for now.
+- No Notifications for user actions (as we are the only user adding data, we can saw our data added. No need for notifications)
+- Better error management
+- There is no testing of any kind (unit tests, integration tests, and so on).
 - and a lot more. 
 
 I am sure you, readers, have even more ideas!
@@ -83,3 +88,18 @@ yarn run dev
 ## Use
 
 Just have fun with this little `demo` app.
+
+## Troubleshooting
+
+If you need to redo the database for development.  
+This is simple, here is the workflow:
+```
+rm ./prisma/memories.dev.db 
+npx prisma db push
+npx prisma db seed
+```
+
+`prisma db push` will recreate the database with all the tables, but they will be empty.  
+`prisma db seed` will add all the mock data to the database.
+
+Then have fun again !
