@@ -24,7 +24,7 @@ import { User } from "@/types/users";
 import { useModeStore } from "@/lib/storeProvider";
 import NewEvent from "@/components/NewEvent/NewEvent";
 import NewEventCollapsed from "../NewEventCollapsed/NewEventCollapsed";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 dayjs.extend(relativeTime);
 
@@ -53,12 +53,12 @@ export default function TimelineComp(props: Props) {
 
   const deletePost = async (id: number) => {
     await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/memories/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-    
+        "Content-Type": "application/json",
+      },
+    });
+
     router.refresh();
   };
 
@@ -94,7 +94,7 @@ export default function TimelineComp(props: Props) {
               }
             >
               <Group justify="space-between">
-                <Text c="dimmed" size="sm" style={{flex: 2}}>
+                <Text c="dimmed" size="sm" style={{ flex: 2 }}>
                   {event.user.status}
                 </Text>
 
@@ -103,14 +103,24 @@ export default function TimelineComp(props: Props) {
                 </Text>
 
                 {event.user.id === 6 && " | " && (
-                  <UnstyledButton
-                    component="a"
-                    c="red"
-                    fz={13}
-                    onClick={() => deletePost(event.id)}
-                  >
-                    Delete
-                  </UnstyledButton>
+                  <>
+                    <UnstyledButton
+                      component="a"
+                      c="blue"
+                      fz={13}
+                      onClick={() => editPost(event.id)}
+                    >
+                      Edit
+                    </UnstyledButton>
+                    <UnstyledButton
+                      component="a"
+                      c="red"
+                      fz={13}
+                      onClick={() => deletePost(event.id)}
+                    >
+                      Delete
+                    </UnstyledButton>
+                  </>
                 )}
               </Group>
               <Card shadow="sm" p="xs" radius="sm" withBorder mt={4} maw={450}>
