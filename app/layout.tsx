@@ -11,6 +11,7 @@ import { User } from "@/types/users";
 import "@mantine/dropzone/styles.css";
 
 import { ModeStoreProvider } from "./_lib/storeProvider";
+import { ModalsProvider } from '@mantine/modals';
 
 export const metadata = {
   title: "Memory Lane",
@@ -36,8 +37,10 @@ export default async function RootLayout({ children }: { children: any }) {
       <body>
         <MantineProvider theme={theme} withCssVariables={true}>
           <ModeStoreProvider>
-            <Header user={data.user} />
-            {children}
+            <ModalsProvider>
+              <Header user={data.user} />
+              {children}
+            </ModalsProvider>
           </ModeStoreProvider>
         </MantineProvider>
       </body>

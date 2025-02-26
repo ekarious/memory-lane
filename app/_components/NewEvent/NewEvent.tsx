@@ -23,7 +23,7 @@ import { zodResolver } from "mantine-form-zod-resolver";
 import { z } from "zod";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { sanitizeFileName } from "@/utils/string";
+import { sanitizeFileName } from "app/_utils/string";
 
 interface Props {
   currentUser: User;

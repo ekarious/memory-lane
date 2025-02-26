@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
-import { sanitizeFileName } from "@/utils/string";
+import { sanitizeFileName } from "app/_utils/string";
 import { promisify } from "util";
 import { pipeline } from "stream";
 

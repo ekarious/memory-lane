@@ -24,7 +24,8 @@ import { User } from "@/types/users";
 import { useModeStore } from "@/lib/storeProvider";
 import NewEvent from "@/components/NewEvent/NewEvent";
 import NewEventCollapsed from "../NewEventCollapsed/NewEventCollapsed";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
+import { modals } from "@mantine/modals";
 
 dayjs.extend(relativeTime);
 
@@ -51,14 +52,26 @@ export default function TimelineComp(props: Props) {
     return event;
   });
 
+  const openDeleteModal = (eventID: number) =>
+    modals.openConfirmModal({
+      title: "Do you really want to delete this post ?",
+      centered: true,
+      withCloseButton: false,
+      children: <Text size="sm">This action is irreversible.</Text>,
+      labels: { confirm: "Delete", cancel: "Cancel" },
+      confirmProps: { color: "red" },
+      onCancel: () => console.log("Cancel"),
+      onConfirm: () => console.log(deletePost(eventID)),
+    });
+
   const deletePost = async (id: number) => {
     await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/memories/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-    
+        "Content-Type": "application/json",
+      },
+    });
+
     router.refresh();
   };
 
@@ -94,7 +107,7 @@ export default function TimelineComp(props: Props) {
               }
             >
               <Group justify="space-between">
-                <Text c="dimmed" size="sm" style={{flex: 2}}>
+                <Text c="dimmed" size="sm" style={{ flex: 2 }}>
                   {event.user.status}
                 </Text>
 
@@ -107,7 +120,7 @@ export default function TimelineComp(props: Props) {
                     component="a"
                     c="red"
                     fz={13}
-                    onClick={() => deletePost(event.id)}
+                    onClick={() => openDeleteModal(event.id)}
                   >
                     Delete
                   </UnstyledButton>

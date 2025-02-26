@@ -525,6 +525,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/modals@npm:^7.17.0":
+  version: 7.17.0
+  resolution: "@mantine/modals@npm:7.17.0"
+  peerDependencies:
+    "@mantine/core": 7.17.0
+    "@mantine/hooks": 7.17.0
+    react: ^18.x || ^19.x
+    react-dom: ^18.x || ^19.x
+  checksum: 10c0/720f759940c295f277a47812250ad41d168c3387c8a6797b1c87aada463c7f0b473590ef9a0a56451b351d454c9985e75b0b09b8b597b9605993c1ae61181aa6
+  languageName: node
+  linkType: hard
+
 "@mantine/notifications@npm:^7.17.0":
   version: 7.17.0
   resolution: "@mantine/notifications@npm:7.17.0"
@@ -4153,6 +4165,7 @@ __metadata:
     "@mantine/dropzone": "npm:^7.17.0"
     "@mantine/form": "npm:^7.17.0"
     "@mantine/hooks": "npm:^7.17.0"
+    "@mantine/modals": "npm:^7.17.0"
     "@mantine/notifications": "npm:^7.17.0"
     "@prisma/client": "npm:^6.3.1"
     "@tabler/icons-react": "npm:^3.30.0"
